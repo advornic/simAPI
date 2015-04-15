@@ -181,6 +181,8 @@ class SimApiApplication(object):
 
     def processRequest(self, request):
         '''Common implementation of all HTTP requests.'''
+        print 'Diegooooo'
+        return ('200 OK', 'application/json', None, result)
         try:
             config = load_config()
 
