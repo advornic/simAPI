@@ -1,8 +1,8 @@
 {
   "cmds" : {
-    "show version detail":
+    "show my version":
     {
-	"plugin" : "show_version_detail",
+	"plugin" : "show_my_version",
     },
 
     "show port-channel": 
