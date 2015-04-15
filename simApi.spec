@@ -35,7 +35,7 @@ sudo /usr/bin/immortalize --daemonize /usr/bin/uwsgi --ini /etc/uwsgi/simApi.ini
 
 %files
 %defattr(-,root,eosadmin,-)
-%{python_sitelib}/SimApi.pyc
+%{python_sitelib}/SimApi.py*
 %{python_sitelib}/simApi-%{version}-py2.7.egg-info/*
 %{_sysconfdir}/nginx/external_conf/simApi.conf
 %{_sysconfdir}/uwsgi/simApi.ini
@@ -45,8 +45,7 @@ sudo /usr/bin/immortalize --daemonize /usr/bin/uwsgi --ini /etc/uwsgi/simApi.ini
 %config /persist/sys/simAPI/plugins/show_my_version
 %config /persist/sys/simAPI/plugins/increment_counters
 %config /tmp/interface_counters
-%exclude %{python_sitelib}/SimApi.py
-%exclude %{python_sitelib}/SimApi.pyo
+
 
 %changelog
 * Tue Oct 23 2014 Andrei Dvornic <andrei@arista.com> - %{version}-1
