@@ -41,8 +41,8 @@ def main(server, cmd=None, params=None):
         hostname = server.runCmds(1, ['show hostname'])[0]['hostname']  
         kernel_release = os.popen('uname -r').readlines()[0][:-1][:-1]
                                                                
-        result['Hostname'] = hostname
-        result['Kernel'] = kernel_release                                                            
+        result['hostname'] = hostname
+        result['kernel'] = kernel_release                                                            
 
         return result
     except Exception as exc:
