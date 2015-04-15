@@ -4,7 +4,7 @@ import random
 DATA_FILE = '/tmp/interface_counters'
 
 def main(server, cmd=None, params=None):
-
+    return {}
     all_counters = json.loads(open(DATA_FILE).read())
     for intf, counters in all_counters['interfaces'].iteritems():
         for counter in counters.iterkeys():
