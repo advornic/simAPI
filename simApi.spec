@@ -46,7 +46,6 @@ sudo /usr/bin/immortalize --daemonize /usr/bin/uwsgi --ini /etc/uwsgi/simApi.ini
 %config /persist/sys/simAPI/plugins/increment_counters
 %config /tmp/interface_counters
 
-
 %changelog
 * Tue Oct 23 2014 Andrei Dvornic <andrei@arista.com> - %{version}-1
 - Initial release
