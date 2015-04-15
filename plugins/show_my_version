@@ -35,7 +35,6 @@
 import os
 
 def main(server, cmd=None, params=None):
-    return {'bla':'bum'}
     try:
         version = server.runCmds(1, ['show version'],                  
                                  'text')[0]['output']            
