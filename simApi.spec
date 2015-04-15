@@ -43,6 +43,8 @@ sudo /usr/bin/immortalize --daemonize /usr/bin/uwsgi --ini /etc/uwsgi/simApi.ini
 %config /persist/sys/simAPI/plugins/show_port-channel
 %config /persist/sys/simAPI/plugins/replace_strings
 %config /persist/sys/simAPI/plugins/show_my_version
+%config /persist/sys/simAPI/plugins/increment_counters
+%config /tmp/interface_counters
 %exclude %{python_sitelib}/SimApi.py
 %exclude %{python_sitelib}/SimApi.pyo
 
