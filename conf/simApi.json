@@ -2,12 +2,12 @@
   "cmds" : {
     "show my version":
     {
-	"plugin" : "show_my_version",
+	"plugin" : "show_my_version"
     },
 
     "show port-channel": 
     { 
-        "plugin" : "show_port-channel",
+        "plugin" : "show_port-channel"
     },
 
     "show interfaces counters" : {
