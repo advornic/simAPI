@@ -28,30 +28,28 @@
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from glob import glob
-from setuptools import setup
+# This plugin replaces strings in "show" commands.
 
-INSTALL_REQUIREMENTS = [
-    'jsonrpclib',
-    'cjson'
-    ]
+# pylint: disable=C0103
 
-setup(
-      name='simApi',
-      version=open('VERSION').read().split()[0],
-      description='vEOS extension to serve custom eAPI responses',
-      long_description=open('README.md').read(),
-      author='Andrei Dvornic, Arista EOS+',
-      author_email='andrei@arista.com',
-      license='BSD-3',
-      url='http://eos.arista.com',
-      py_modules=['SimApi'],
-      install_requires=INSTALL_REQUIREMENTS,
-      data_files=[
-          ('/etc/nginx/external_conf', ['conf/simApi.conf']),
-          ('/etc/uwsgi', ['conf/simApi.ini']),
-          ('/tmp', ['conf/interface_counters']),
-          ('/persist/sys/simAPI', ['conf/simApi.json']),
-          ('/persist/sys/simAPI/plugins', glob('plugins/*')),
-          ]
-      )
+import os
+
+def main(server, cmd=None, params=None):
+
+
+    version = server.runCmds(1, ['show version'],                  
+                         'text')[0]['output']            
+    version = version.split('\n')                                  
+
+
+    hostname = server.runCmds(1, ['show hostname'])[0]['hostname']  
+
+    kernel_release = os.popen('uname -r').readlines()[0][:-1]      
+                                                               
+
+    version.insert(1, 'Hostname:'.ljust(21) + hostname)            
+    version.insert(10, 'Kernel:'.ljust(24) + kernel_release[:-1])                                                                 
+    print 
+
+    return { "output": '\n'.join(version) }
+

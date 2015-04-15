@@ -1,0 +1,28 @@
+{
+            "interfaces": {
+                "Management1": {
+                    "inUcastPkts": 0,
+                    "outBroadcastPkts": 0,
+                    "outUcastPkts": 0,
+                    "outMulticastPkts": 0,
+                    "inMulticastPkts": 0,
+                    "inBroadcastPkts": 0,
+                    "inDiscards": 0,
+                    "outOctets": 0,
+                    "outDiscards": 0,
+                    "inOctets": 0
+                },
+                "Ethernet1": {
+                    "inUcastPkts": 0,
+                    "outBroadcastPkts": 0,
+                    "outUcastPkts": 0,
+                    "outMulticastPkts": 0,
+                    "inMulticastPkts": 0,
+                    "inBroadcastPkts": 0,
+                    "inDiscards": 0,
+                    "outOctets": 0,
+                    "outDiscards": 0,
+                    "inOctets": 0
+                }
+            }
+}

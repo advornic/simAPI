@@ -1,28 +1,43 @@
 {
-  // This is a comment
   "cmds" : {
-     "show version": 
+    "show version detail":
+    {
+	"plugin" : "show_version_detail",
+    },
 
-      { 
-        "result" : { "1" : 1 } 
-      },
-
-     "show port-channel": 
-      { 
+    "show port-channel": 
+    { 
         "plugin" : "show_port-channel",
+    },
 
-       // ignored because plugin takes precedence
-        "result" : { "1" : 1 } 
-      },
+    "show interfaces counters" : {
+        "plugin" : "increment_counters"
+    },
 
-    /* This is
-       another 
-       comment. */
-
-    "show interfaces status": // Yet another comment
+    "show lldp neighbors":
       { 
-        "delay" : 0,
-        "result" : { "2" : 2 } 
+        "delay" : 0.5,
+        "result" : {
+            "lldpNeighbors": [
+                {
+                    "neighborDevice": "ztps.ztps-test.com",
+                    "neighborPort": "0800.274e.ec8c",
+                    "port": "Management1",
+                    "ttl": 120
+                },
+                {
+                    "neighborDevice": "google.com",
+                    "neighborPort": "eth0",
+                    "port": "Ethernet100",
+                    "ttl": 120
+       		}
+            ],
+            "tablesAgeOuts": 0,
+            "tablesDeletes": 0,
+            "tablesDrops": 0,
+            "tablesInserts": 1,
+            "tablesLastChangeTime": 1429028573.16
+        }
       }
   },
 
