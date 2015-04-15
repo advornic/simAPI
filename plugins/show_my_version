@@ -36,19 +36,14 @@ import os
 
 def main(server, cmd=None, params=None):
     try:
-        version = server.runCmds(1, ['show version'],                  
-                                 'text')[0]['output']            
-        version = version.split('\n')                                  
-
+        result = server.runCmds(1, ['show version'])[0]
 
         hostname = server.runCmds(1, ['show hostname'])[0]['hostname']  
-        
-        kernel_release = os.popen('uname -r').readlines()[0][:-1]      
+        kernel_release = os.popen('uname -r').readlines()[0][:-1][:-1]
                                                                
+        result['Hostname'] = hostname
+        result['Kernel'] = kernel_release                                                            
 
-        version.insert(1, 'Hostname:'.ljust(21) + hostname)            
-        version.insert(10, 'Kernel:'.ljust(24) + kernel_release[:-1])                                                                 
-
-        return { "output": '\n'.join(version) }
+        return result
     except Exception as exc:
         return { "error": str(exc) }
