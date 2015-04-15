@@ -4,15 +4,17 @@ import random
 DATA_FILE = '/tmp/interface_counters'
 
 def main(server, cmd=None, params=None):
-    return {}
-    all_counters = json.loads(open(DATA_FILE).read())
-    for intf, counters in all_counters['interfaces'].iteritems():
-        for counter in counters.iterkeys():
-            all_counters['interfaces'][intf][counter] += random.randint(1, 100)
-    open(DATA_FILE, 'w').write(json.dumps(all_counters))
+    try:
+        all_counters = json.loads(open(DATA_FILE).read())
+        for intf, counters in all_counters['interfaces'].iteritems():
+            for counter in counters.iterkeys():
+                all_counters['interfaces'][intf][counter] += random.randint(1, 100)
+        open(DATA_FILE, 'w').write(json.dumps(all_counters))
 
-    output = server.runCmds(1, ['show interfaces counters'] )[0]
-    for intf, counters in all_counters['interfaces'].iteritems():
-        output['interfaces'][intf] = counters
-    return output
+        output = server.runCmds(1, ['show interfaces counters'] )[0]
+        for intf, counters in all_counters['interfaces'].iteritems():
+            output['interfaces'][intf] = counters
+        return output
+    except Exception as e:
+        return {'error': str(e)}
 
